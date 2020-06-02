@@ -5,12 +5,11 @@
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    function play(sound){
+function play(sound){
       const key = sound.getAttribute("data-key");
-      document.querySelectorAll('[data-key='+ sound +']');
-      const audioEllements = document.getElementById(data-key);
-      var toPlay = new Audio()
-      
+      let soundSource = document.querySelectorAll("[data-key=\'" + key + "\']")[1].src;
+      let audio = new Audio(soundSource);
+      audio.play();
     }
 </script>
 </head>
