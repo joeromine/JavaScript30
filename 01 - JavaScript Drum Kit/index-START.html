@@ -5,22 +5,22 @@
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
   <script>
-function play(sound){
-      const key = sound.getAttribute("data-key");
+    window.addEventListener("keydown",(e)=>{
+      const sound = document.querySelector('[data-key="'+ e.keyCode+'"]');
       sound.classList.add('playing');
-      setTimeout(()=>sound.classList.remove('playing'),600)
-      
-      let soundSource = document.querySelectorAll("[data-key=\'" + key + "\']")[1].src;
+      setTimeout(()=>sound.classList.remove('playing'),70)
+      let soundSource = document.querySelectorAll("[data-key=\'" + e.keyCode + "\']")[1].src;
       let audio = new Audio(soundSource);
       audio.play();
-    }
+    })
+    
 </script>
 </head>
 <body>
 
 
   <div class="keys">
-    <div data-key="65" class="key" onclick="play(this)">
+    <div data-key="65" class="key" onkeypress="play(event)">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
