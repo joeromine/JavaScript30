@@ -7,6 +7,9 @@
   <script>
 function play(sound){
       const key = sound.getAttribute("data-key");
+      sound.classList.add('playing');
+      setTimeout(()=>sound.classList.remove('playing'),600)
+      
       let soundSource = document.querySelectorAll("[data-key=\'" + key + "\']")[1].src;
       let audio = new Audio(soundSource);
       audio.play();
