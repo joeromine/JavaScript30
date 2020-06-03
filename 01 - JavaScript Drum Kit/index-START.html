@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="style.css">
   <script>
     window.addEventListener("keydown",(e)=>{
-      const sound = document.querySelector('[data-key="'+ e.keyCode+'"]');
+      const sound = document.querySelector(`[data-key="${e.keyCode}"]`);
       sound.classList.add('playing');
       setTimeout(()=>sound.classList.remove('playing'),70)
-      let soundSource = document.querySelectorAll("[data-key=\'" + e.keyCode + "\']")[1].src;
+      let soundSource = document.querySelectorAll(`[data-key="${e.keyCode}"]`)[1].src;
       let audio = new Audio(soundSource);
       audio.play();
     })
